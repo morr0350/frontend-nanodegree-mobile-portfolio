@@ -19,11 +19,13 @@ module.exports = function(grunt) {
                     sizes: [{
                         width: 1600,
                         suffix: "_lg_2x",
-                        quality: 30
+                        quality: 30,
+                        upscale: false
                     },{
                         width: 640,
                         suffix: "_md",
-                        quality: 60
+                        quality: 60,
+                        upscale: false
                     },{
                         width: 320,
                         suffix: "_sm",
@@ -32,6 +34,11 @@ module.exports = function(grunt) {
                         width: 100,
                         suffix: "_xs",
                         quality: 75
+                    },
+                    {
+                        width: 70,
+                        suffix: "_xxs",
+                        quality: 90
                     }]
                 },
                 /*
