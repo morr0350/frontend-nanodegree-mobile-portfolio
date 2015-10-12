@@ -12,13 +12,25 @@
 module.exports = function(grunt) {
 
     grunt.initConfig({
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'views/css',
+                    src: ['*.css', '!*.min.css'],
+                    dest: 'views/css',
+                    ext: '.min.css'
+                }]
+            }
+        },
         uglify: {
             options: {
                 mangle: false
             },
             my_target: {
                 files: {
-                    'views/js/main.min.js': ['views/js/main.js']
+                    'views/js/main.min.js': ['views/js/main.js'],
+                    'js/perfmatters.min.js': ['js/perfmatters.js']
                 }
             }
         },
@@ -91,11 +103,12 @@ module.exports = function(grunt) {
         },
     });
 
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks("grunt-responsive-images");
     grunt.loadNpmTasks("grunt-contrib-clean");
     grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.loadNpmTasks("grunt-mkdir");
-    grunt.registerTask("default", ["clean", "mkdir", "copy", "responsive_images", "uglify"]);
+    grunt.registerTask("default", ["clean", "mkdir", "copy", "responsive_images", "uglify", "cssmin"]);
 
 };
