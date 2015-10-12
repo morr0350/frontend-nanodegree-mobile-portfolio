@@ -447,12 +447,7 @@ var resizePizzas = function(size) {
     var newRatio = sizeSwitcher(size);
 
     for (var i = 0; i < pizzaElems.length; i++) {
-      var newwidth = windowwidth * newRatio + 'px';
-      sizes[i] = newwidth;
-    }
-
-    for (var i = 0; i < pizzaElems.length; i++) {
-      pizzaElems[i].style.width = sizes[i];
+      pizzaElems[i].style.width = windowwidth * newRatio + 'px';
     }
   }
 
